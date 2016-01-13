@@ -4,12 +4,37 @@
   display: inline-block;
 }
 
+.ng-thumb-container {
+	float: left;
+	width: 22%;
+	margin: 40px 4% 20px 0;
+	position: relative;
+}
+
+.ng-gallery .ng-thumb-container:nth-child(4n) {
+	margin-right: 0;
+}
+.ng-gallery .ng-thumb-container:nth-child(4n+1) {
+	clear: both;
+}
+
+.ng-thumb-container .delete-icon {
+	position: absolute;
+	top: -15px;
+	right: 0;
+}
+.ng-thumb-container .delete-icon:hover {
+	color: #1CB94E;
+}
+
 img.ng-thumb {
-  height: 50px;
-  float: left;
-  display: block;
-  cursor: pointer;
-  margin: 2px 2px 0 0; 
+	width: 100%;
+}
+
+img.ng-thumb:hover {
+	opacity: 0.4;
+	filter: alpha(opacity=40); /* For IE8 and earlier */
+	cursor: pointer;
 }
 
 .ng-overlay { 

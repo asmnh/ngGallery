@@ -6,6 +6,7 @@ angular.module('jkuri.gallery', [])
 	var defaults = { 
 		baseClass   : 'ng-gallery',
 		thumbClass  : 'ng-thumb',
+		thumbContainerClass  : 'ng-thumb-container',
 		templateUrl : 'ng-gallery.html'
 	};
 
@@ -19,6 +20,7 @@ angular.module('jkuri.gallery', [])
 	function setScopeValues(scope, attrs) {
 		scope.baseClass = scope.class || defaults.baseClass;
 		scope.thumbClass = scope.thumbClass || defaults.thumbClass;
+		scope.thumbContainerClass = scope.thumbContainerClass || defaults.thumbContainerClass;
 		scope.thumbsNum = scope.thumbsNum || 3; // should be odd
 	}
 
@@ -26,8 +28,10 @@ angular.module('jkuri.gallery', [])
 	// Set the default template
   	$templateCache.put(template_url,
 	'<div class="{{ baseClass }}">' +
-	'  <div ng-repeat="i in images">' +
+	'  <div ng-repeat="i in images  | startFrom: startFromValue | limitTo: limitToValue" class="{{ thumbContainerClass }}">' +
+	'	 <span class="glyphicon glyphicon-remove delete-icon" ng-click=""></span>' +
 	'    <img ng-src="{{ i.thumb }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" />' +
+	'	 <span>{{i.title}}</span>'+
 	'  </div>' +
 	'</div>' +
 	'<div class="ng-overlay" ng-show="opened">' +
@@ -38,7 +42,7 @@ angular.module('jkuri.gallery', [])
 	'  <a class="nav-left" ng-click="prevImage()"><i class="fa fa-angle-left"></i></a>' +
 	'  <img ng-src="{{ img }}" ng-click="nextImage()" ng-show="!loading" class="effect" />' +
 	'  <a class="nav-right" ng-click="nextImage()"><i class="fa fa-angle-right"></i></a>' +
-	'  <span class="info-text">{{ index + 1 }}/{{ images.length }} - {{ description }}</span>' +
+	'  <span class="info-text">{{ index + 1 }}/{{ images.length }} - {{ title }}</span>' +
 	'  <div class="ng-thumbnails-wrapper">' +
 	'    <div class="ng-thumbnails slide-left">' +
 	'      <div ng-repeat="i in images">' + 
@@ -53,6 +57,8 @@ angular.module('jkuri.gallery', [])
 		restrict: 'EA',
 		scope: {
 			images: '=',
+			startFromValue: '=',
+			limitToValue: '=',
 			thumbsNum: '@'
 		},
 		templateUrl: function(element, attrs) {
@@ -102,7 +108,7 @@ angular.module('jkuri.gallery', [])
 					scope.img = resp.src;
 					smartScroll(scope.index);
 				});
-				scope.description = scope.images[i].description || '';
+				scope.title = scope.images[i].title || '';
 			};
 
 			scope.changeImage = function (i) {
@@ -111,6 +117,7 @@ angular.module('jkuri.gallery', [])
 					scope.img = resp.src;
 					smartScroll(scope.index);
 				});
+				scope.title = scope.images[i].title || '';
 			};
 
 			scope.nextImage = function () {

@@ -28,6 +28,6 @@
     "images"
   ],
   "dependencies": {
-    "angular": "~1.4.0"
+    //"angular": "~1.4.0" // No dependencies are required. This lib will be included into project that already contains necessary libs
   }
 }
