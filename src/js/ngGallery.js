@@ -30,7 +30,7 @@ angular.module('jkuri.gallery', [])
 	'<div class="{{ baseClass }}">' +
 	'  <div ng-repeat="i in images  | startFrom: startFromValue | limitTo: limitToValue" class="{{ thumbContainerClass }}">' +
 	'	 <span class="glyphicon glyphicon-remove delete-icon" ng-click=""></span>' +
-	'    <img ng-src="{{ i.thumb }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" />' +
+	'    <img ng-src="{{ i.thumbnail }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" />' +
 	'	 <span>{{i.title}}</span>'+
 	'  </div>' +
 	'</div>' +
@@ -46,7 +46,7 @@ angular.module('jkuri.gallery', [])
 	'  <div class="ng-thumbnails-wrapper">' +
 	'    <div class="ng-thumbnails slide-left">' +
 	'      <div ng-repeat="i in images">' + 
-	'        <img ng-src="{{ i.thumb }}" ng-class="{\'active\': index === $index}" ng-click="changeImage($index)" />' +
+	'        <img ng-src="{{ i.thumbnail }}" ng-class="{\'active\': index === $index}" ng-click="changeImage($index)" />' +
 	'      </div>' +
 	'    </div>' +
 	'  </div>' +
