@@ -97,7 +97,7 @@ angular.module('jkuri.gallery', [])
 					deferred.reject();
 				};
 				
-				image.src = scope.images[i].img;
+				image.src = scope.images[i].thumbnail;
 				scope.loading = true;
 
 				return deferred.promise;
