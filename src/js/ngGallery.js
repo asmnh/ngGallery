@@ -29,7 +29,7 @@ angular.module('jkuri.gallery', [])
   	$templateCache.put(template_url,
 	'<div class="{{ baseClass }}">' +
 	'  <div ng-repeat="i in images  | startFrom: startFromValue | limitTo: limitToValue" class="{{ thumbContainerClass }}">' +
-	'	 <span class="glyphicon glyphicon-remove delete-icon" ng-click=""></span>' +
+	'	 <span class="glyphicon glyphicon-remove delete-icon" ng-click="remove(i)"></span>' +
 	'    <img ng-src="{{ i.thumbnail }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" />' +
 	'	 <span>{{i.title}}</span>'+
 	'  </div>' +
@@ -59,7 +59,8 @@ angular.module('jkuri.gallery', [])
 			images: '=',
 			startFromValue: '=',
 			limitToValue: '=',
-			thumbsNum: '@'
+			thumbsNum: '@',
+			remove: '='
 		},
 		templateUrl: function(element, attrs) {
         		return attrs.templateUrl || defaults.templateUrl;
