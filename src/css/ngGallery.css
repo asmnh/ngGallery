@@ -146,7 +146,7 @@ img.ng-thumb:hover {
 }
 
 .ng-gallery-content > .ng-thumbnails-wrapper > .ng-thumbnails > div > img {
-  width: auto;
+  width: 70px;
   height: 70px;
   float: left;
   margin-right: 10px;
