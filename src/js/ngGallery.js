@@ -30,7 +30,7 @@ angular.module('jkuri.gallery', [])
 	'<div class="{{ baseClass }}">' +
 	'  <div ng-repeat="i in images  | startFrom: startFromValue | limitTo: limitToValue" class="{{ thumbContainerClass }}">' +
 	'	 <span class="glyphicon glyphicon-remove delete-icon" ng-click="remove(i)"></span>' +
-	'    <img ng-src="{{ i.thumbnail }}" class="{{ thumbClass }}" ng-click="openGallery($index)" alt="Image {{ $index + 1 }}" />' +
+	'    <img ng-src="{{ i.thumbnail }}" class="{{ thumbClass }}" ng-click="openGallery($index+startFromValue)" alt="Image {{ $index + startFromValue + 1 }}" />' +
 	'	 <span>{{i.title}}</span>'+
 	'  </div>' +
 	'</div>' +
@@ -197,7 +197,7 @@ angular.module('jkuri.gallery', [])
 					    s = Math.ceil(len / i);
 
 					$thumbwrapper[0].scrollLeft = 0;
-					$thumbwrapper[0].scrollLeft = i * item_scroll - (s * item_scroll);
+					$thumbwrapper[0].scrollLeft = i > scope.thumbsNum ? (i - scope.thumbsNum) * item_scroll : 0;
 				}, 100);
 			};
 
