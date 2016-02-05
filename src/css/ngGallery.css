@@ -20,6 +20,7 @@
 
 .ng-thumb-container .glyphicon {
   float: right;
+  margin: 0 0 5px 5px;
 }
 .ng-thumb-container .glyphicon:hover {
 	color: #1CB94E;
