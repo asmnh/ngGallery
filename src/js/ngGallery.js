@@ -30,6 +30,9 @@ angular.module('jkuri.gallery', [])
 	'<div class="{{ baseClass }}">' +
 	'  <div ng-repeat="i in images  | startFrom: startFromValue | limitTo: limitToValue" class="{{ thumbContainerClass }}">' +
 	'	 <span class="glyphicon glyphicon-remove delete-icon" ng-click="remove(i)"></span>' +
+	'	 <a  ng-href="{{i.thumbnail}}" class="download-link">' +
+	'		<span class="glyphicon glyphicon-download-alt"></span>' +
+	'	 </a>' +
 	'    <img ng-src="{{ i.thumbnail }}" class="{{ thumbClass }}" ng-click="openGallery($index+startFromValue)" alt="Image {{ $index + startFromValue + 1 }}" />' +
 	'	 <span>{{i.title}}</span>'+
 	'  </div>' +

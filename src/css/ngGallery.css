@@ -18,13 +18,16 @@
 	clear: both;
 }
 
-.ng-thumb-container .delete-icon {
-	position: absolute;
-	top: -15px;
-	right: 0;
+.ng-thumb-container .glyphicon {
+  float: right;
 }
-.ng-thumb-container .delete-icon:hover {
+.ng-thumb-container .glyphicon:hover {
 	color: #1CB94E;
+}
+
+.ng-thumb-container .download-link {
+  color: #000;
+  text-decoration: none;
 }
 
 img.ng-thumb {
