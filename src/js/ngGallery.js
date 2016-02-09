@@ -33,7 +33,7 @@ angular.module('jkuri.gallery', [])
 	'	 <a  ng-href="{{i.thumbnail}}" download class="download-link" title="Right click and Save link as...">' +
 	'		<span class="glyphicon glyphicon-download-alt"></span>' +
 	'	 </a>' +
-	'    <img ng-src="{{ i.thumbnail }}" class="{{ thumbClass }}" ng-click="openGallery($index+startFromValue)" alt="Image {{ $index + startFromValue + 1 }}" />' +
+	'    <img ng-src="{{ i.thumbnail }}" class="{{ thumbClass }}" ng-click="openGallery($index+startFromValue)" ng-attr-title="{{ i.metadata }}" alt="Image {{ $index + startFromValue + 1 }}" />' +
 	'	 <span>{{i.title}}</span>'+
 	'  </div>' +
 	'</div>' +
