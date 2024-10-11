@@ -1,0 +1,14 @@
+{
+  "name": "ngGallery",
+  "version": "0.0.1",
+  "description": "AngularJS Photo Gallery Directive",
+  "author": "Jan Kuri <jkuri88@gmail.com>",
+  "license": "MIT",
+  "main": "src/js/ngGallery.js",
+  "files": [
+    "src/cdd/ngGallery.css"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0"
+  }
+}
